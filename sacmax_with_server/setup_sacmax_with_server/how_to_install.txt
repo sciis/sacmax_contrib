@@ -1,0 +1,15 @@
+
+How to set up:
+    First, please input this command "sudo apt-get update", 
+    Second, please set this directory("setup_sacmax_with_server") in /home/pi
+
+    1. $ cd /home/pi/setup_sacmax_with_server
+    2. $ sudo sh install_with_server.sh install
+
+How to control device:
+    Fundamentally, plase read consult /home/pi/how_to_test_dev_ctrl.txt.
+    When using"sacmax_with_server", please refer to the following commenct in these files.
+    
+    /home/pi/sac/mysql_client.py
+    /home/pi/sac/ftp_downloader.py
+
