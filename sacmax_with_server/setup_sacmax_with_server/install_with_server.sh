@@ -21,6 +21,7 @@ set -eu
     readonly RAMDISK_DIR='\/tmp\/ramdisk'
     readonly FSTAB='/etc/fstab'
     ##fstab
+    cp -f ${FSTAB} ./fstab
     sed -i -e "s/tmpfs.*/tmpfs      ${RAMDISK_DIR}  tmpfs   nodev,nosuid,size=4M 0    0/g" fstab 
     chown root:root fstab
     chmod 644 fstab
