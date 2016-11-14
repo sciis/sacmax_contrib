@@ -5,64 +5,64 @@
   with server(mysql_connect, ftp download)  
   
 ## Description  
-  sacmax. with server ‚Ísacmax‚ÌŠg’£ƒ‚ƒWƒ…[ƒ‹ŒQ‚Å‚·Bsacmax‚ªƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ä‚¢‚é  
-  Raspberry Pi‚ÅAMySQL‚ÆFTP‚Ì‹@”\‚ğ—˜—p‚Å‚«‚é‚æ‚¤‚É‚È‚è‚Ü‚·B 
+  sacmax. with server ã¯sacmaxã®æ‹¡å¼µãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ç¾¤ã§ã™ã€‚sacmaxãŒã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚‹  
+  Raspberry Piã§ã€MySQLã¨FTPã®æ©Ÿèƒ½ã‚’åˆ©ç”¨ã§ãã‚‹ã‚ˆã†ã«ãªã‚Šã¾ã™ã€‚ 
   
 ##Requirement  
  Raspbian jessie lite (ver. September 2016)  
  Raspberry Pi 2 in sacmax_core  
   
 ##Usage  
- Eftp_client(ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚©‚ç“®ìŠm”F)  
-     ‚Ü‚¸–‘O‚ÉAdev_info.conf ‚ÌFTP_CONFATARGET_FILE‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢Bİ’è‚Íƒtƒ@ƒCƒ‹“à‚Ìsamaple‚ğQl‚É‚µ‚Ä‚­‚¾‚³‚¢B  
+ ãƒ»ftp_client(ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‹ã‚‰å‹•ä½œç¢ºèª)  
+     ã¾ãšäº‹å‰ã«ã€dev_info.conf ã®FTP_CONFã€TARGET_FILEã‚’è¨­å®šã—ã¦ãã ã•ã„ã€‚è¨­å®šã¯ãƒ•ã‚¡ã‚¤ãƒ«å†…ã®samapleã‚’å‚è€ƒã«ã—ã¦ãã ã•ã„ã€‚  
      
-     Ÿ‚Éƒ^[ƒ~ƒiƒ‹‚ğ2‚ÂŠJ‚­‚È‚ÇAƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Ì‰æ–Ê‚ğ2‚Â—pˆÓ‚µ‚Ä‚­‚¾‚³‚¢(‚»‚ê‚¼‚êterminal_aAterminal_b ‚Æ‚µ‚Ü‚·)  
+     æ¬¡ã«ã‚¿ãƒ¼ãƒŸãƒŠãƒ«ã‚’2ã¤é–‹ããªã©ã€ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã®ç”»é¢ã‚’2ã¤ç”¨æ„ã—ã¦ãã ã•ã„(ãã‚Œãã‚Œterminal_aã€terminal_b ã¨ã—ã¾ã™)  
      $ cs /home/pi/  
      terminal_a:  
         $ python3 /home/pi/sac/ftp_client.py  
      terminal_b:  
         $ python3 /home/pi/max/dev_ctrl.py dl_file  
   
-    ¬Œ÷‚·‚ê‚ÎATARGET_FILE‚Éw’è‚µ‚½ƒtƒ@ƒCƒ‹‚ª/home/pi ’¼‰º‚Éƒ_ƒEƒ“ƒ[ƒh‚³‚ê‚Ü‚·B
+    æˆåŠŸã™ã‚Œã°ã€TARGET_FILEã«æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒ/home/pi ç›´ä¸‹ã«ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¾ã™ã€‚
   
- Eftp_client(Webƒy[ƒW‚©‚ç“®ìŠm”F)  
-     dev_info.conf İ’èŒãAƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚©‚çŠm”F‚Ì terminal_a ‚ÌƒRƒ}ƒ“ƒh‚ğ‘Å‚¿‚ñ‚Å‚©‚çAƒuƒ‰ƒEƒU‚Ìflask_test_page‰º‚É‚ ‚é"sacmax."‚ÌƒƒS‚ğƒNƒŠƒbƒN‚µ‚Ä‚­‚¾‚³‚¢  
-     ‚ ‚é‚¢‚ÍˆÈ‰º‚Ìurl‚ÉƒAƒNƒZƒX‚µ‚Ä‚­‚¾‚³‚¢  
-     http://(Raspberry Pi ‚ÌIPƒAƒhƒŒƒX)/device/dl_file  
+ ãƒ»ftp_client(Webãƒšãƒ¼ã‚¸ã‹ã‚‰å‹•ä½œç¢ºèª)  
+     dev_info.conf è¨­å®šå¾Œã€ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‹ã‚‰ç¢ºèªã® terminal_a ã®ã‚³ãƒãƒ³ãƒ‰ã‚’æ‰“ã¡è¾¼ã‚“ã§ã‹ã‚‰ã€ãƒ–ãƒ©ã‚¦ã‚¶ã®flask_test_pageä¸‹ã«ã‚ã‚‹"sacmax."ã®ãƒ­ã‚´ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦ãã ã•ã„  
+     ã‚ã‚‹ã„ã¯ä»¥ä¸‹ã®urlã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„  
+     http://(Raspberry Pi ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹)/device/dl_file  
   
- Emysql_client(ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚©‚ç“®ìŠm”F)  
-     ‚Ü‚¸–‘O‚ÉAdev_info.conf ‚ÌMYSQL_CONFAMYSQL_TABLEAQUERY_CONDITIONS ‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢Bİ’è‚Íƒtƒ@ƒCƒ‹“à‚Ìsamaple‚ğQl‚É‚µ‚Ä‚­‚¾‚³‚¢B  
-     Ÿ‚Émysql_key_val.conf “à‚Ì"INFO_COMMENT"ˆÈ‰º‚Ì’l‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢B"INFO_COMMENT"ˆÈ‰º‚Ì’l‚ÍAmysql‚Ìƒe[ƒuƒ‹‚ÌƒJƒ‰ƒ€–¼‚É‘Š“–‚·‚é‚à‚Ì‚Å‚·B
+ ãƒ»mysql_client(ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‹ã‚‰å‹•ä½œç¢ºèª)  
+     ã¾ãšäº‹å‰ã«ã€dev_info.conf ã®MYSQL_CONFã€MYSQL_TABLEã€QUERY_CONDITIONS ã‚’è¨­å®šã—ã¦ãã ã•ã„ã€‚è¨­å®šã¯ãƒ•ã‚¡ã‚¤ãƒ«å†…ã®samapleã‚’å‚è€ƒã«ã—ã¦ãã ã•ã„ã€‚  
+     æ¬¡ã«mysql_key_val.conf å†…ã®"INFO_COMMENT"ä»¥ä¸‹ã®å€¤ã‚’è¨­å®šã—ã¦ãã ã•ã„ã€‚"INFO_COMMENT"ä»¥ä¸‹ã®å€¤ã¯ã€mysqlã®ãƒ†ãƒ¼ãƒ–ãƒ«ã®ã‚«ãƒ©ãƒ åã«ç›¸å½“ã™ã‚‹ã‚‚ã®ã§ã™ã€‚
      
-       ƒJƒ‰ƒ€: ’l
+       ã‚«ãƒ©ãƒ : å€¤
      
-     2ƒtƒ@ƒCƒ‹‚Ìİ’èŒãAƒ^[ƒ~ƒiƒ‹‚ğ2‚ÂŠJ‚­‚È‚ÇAƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Ì‰æ–Ê‚ğ2‚Â—pˆÓ‚µ‚Ä‚­‚¾‚³‚¢(‚»‚ê‚¼‚êterminal_aAterminal_b ‚Æ‚µ‚Ü‚·)  
+     2ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šå¾Œã€ã‚¿ãƒ¼ãƒŸãƒŠãƒ«ã‚’2ã¤é–‹ããªã©ã€ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã®ç”»é¢ã‚’2ã¤ç”¨æ„ã—ã¦ãã ã•ã„(ãã‚Œãã‚Œterminal_aã€terminal_b ã¨ã—ã¾ã™)  
      $ cd /home/pi/  
      terminal_a:  
         $ python3 /home/pi/sac/mysql_client.py  
      terminal_b:  
         $ python3 /home/pi/max/dev_ctrl.py apply_mysql_key_val  
   
-    ¬Œ÷‚·‚ê‚ÎAmysql_key_val.conf‚Éw’è‚µ‚½ƒJƒ‰ƒ€‚Ì’l‚ªmysql‚Éİ’è‚³‚ê‚Ä‚¢‚é’l‚É€‚¶‚Ä•Ï‰»‚µ‚Ü‚·B
+    æˆåŠŸã™ã‚Œã°ã€mysql_key_val.confã«æŒ‡å®šã—ãŸã‚«ãƒ©ãƒ ã®å€¤ãŒmysqlã«è¨­å®šã•ã‚Œã¦ã„ã‚‹å€¤ã«æº–ã˜ã¦å¤‰åŒ–ã—ã¾ã™ã€‚
   
- Emysql_client(Webƒy[ƒW‚©‚ç“®ìŠm”F)  
-     ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚©‚çŠm”F‚Ì terminal_a ‚ÌƒRƒ}ƒ“ƒh‚ğ‘Å‚¿‚ñ‚Å‚©‚çAƒuƒ‰ƒEƒU‚Ìflask_test_page‰º‚É‚ ‚é"sacmax."‚ÌƒƒS‚ğƒNƒŠƒbƒN‚µ‚Ä‚­‚¾‚³‚¢  
-     ‚ ‚é‚¢‚ÍˆÈ‰º‚Ìurl‚ÉƒAƒNƒZƒX‚µ‚Ä‚­‚¾‚³‚¢  
-     http://(Raspberry Pi ‚ÌIPƒAƒhƒŒƒX)/device/apply_mysql_key_val  
+ ãƒ»mysql_client(Webãƒšãƒ¼ã‚¸ã‹ã‚‰å‹•ä½œç¢ºèª)  
+     ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‹ã‚‰ç¢ºèªã® terminal_a ã®ã‚³ãƒãƒ³ãƒ‰ã‚’æ‰“ã¡è¾¼ã‚“ã§ã‹ã‚‰ã€ãƒ–ãƒ©ã‚¦ã‚¶ã®flask_test_pageä¸‹ã«ã‚ã‚‹"sacmax."ã®ãƒ­ã‚´ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦ãã ã•ã„  
+     ã‚ã‚‹ã„ã¯ä»¥ä¸‹ã®urlã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„  
+     http://(Raspberry Pi ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹)/device/apply_mysql_key_val  
   
   
 ##Install  
   
-  ¦sacmax.core‚ÌƒZƒbƒgƒAƒbƒv‚Ü‚Å‚ÍI—¹‚³‚¹‚Ä‚¨‚¢‚Ä‚­‚¾‚³‚¢  
-  ¦–‘O‚É sudo apt-get update ‚ğ‚µ‚Ä‚¨‚¢‚Ä‚­‚¾‚³‚¢  
-  ‚±‚±‚Å‚Ísetup_sacmax_with_server ‚ğzipƒtƒ@ƒCƒ‹(setup_sacmax_with_server.zip)‚É‚µ‚½‘O’ñ‚Åà–¾‚ğ‚µ‚Ä‚¢‚Ü‚·BPeaZip‚È‚Çˆ³k‰ğ“€ƒAƒvƒŠ‚ğ‚²—˜—p‚­‚¾‚³‚¢B‚Ü‚½win8ˆÈ~‚Ìê‡‚ÍV‹Kì¬‚©‚çì¬‰Â”\‚Å‚·B  
+  â€»sacmax.coreã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã¾ã§ã¯çµ‚äº†ã•ã›ã¦ãŠã„ã¦ãã ã•ã„  
+  â€»äº‹å‰ã« sudo apt-get update ã‚’ã—ã¦ãŠã„ã¦ãã ã•ã„  
+  ã“ã“ã§ã¯setup_sacmax_with_server ã‚’zipãƒ•ã‚¡ã‚¤ãƒ«(setup_sacmax_with_server.zip)ã«ã—ãŸå‰æã§èª¬æ˜ã‚’ã—ã¦ã„ã¾ã™ã€‚PeaZipãªã©åœ§ç¸®è§£å‡ã‚¢ãƒ—ãƒªã‚’ã”åˆ©ç”¨ãã ã•ã„ã€‚ã¾ãŸwin8ä»¥é™ã®å ´åˆã¯æ–°è¦ä½œæˆã‹ã‚‰ä½œæˆå¯èƒ½ã§ã™ã€‚  
   
-  1.setup_sacmax_with_server.zip‚ğ /home/piã‚Éƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚­‚¾‚³‚¢(zip‚µ‚Ä‚¢‚È‚­‚Æ‚àAƒ_ƒEƒ“ƒ[ƒhæ‚Í /home/pi ‚Å‚·)
-  2.$ unzip setup_sacmax.zip (zip‚µ‚ÄƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚È‚¯‚ê‚Î•s—v‚Å‚·)  
+  1.setup_sacmax_with_server.zipã‚’ /home/piä¸Šã«ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ãã ã•ã„(zipã—ã¦ã„ãªãã¨ã‚‚ã€ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰å…ˆã¯ /home/pi ã§ã™)  
+  2.$ unzip setup_sacmax.zip (zipã—ã¦ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ã„ãªã‘ã‚Œã°ä¸è¦ã§ã™)  
   3.$ cd setup_sacmax_with_server  
   4.$ sudo sh install_nginx_sacmax.sh install  
   5.$ sudo sh install_with_server.sh install  
-  6. /home/pi/sac “à‚É’Ç‰Á‚³‚ê‚½ ftp_client.pyAmysql_client.py ‚ÌƒRƒƒ“ƒg‚É]‚¢A/home/pi/max/cmd_def.py ‚Æ /home/pigeneral.conf ‚É’Ç‹L  
+  6./home/pi/sac å†…ã«è¿½åŠ ã•ã‚ŒãŸ ftp_client.pyã€mysql_client.py ã®ã‚³ãƒ¡ãƒ³ãƒˆã«å¾“ã„ã€/home/pi/max/cmd_def.py ã¨ /home/pigeneral.conf ã«è¿½è¨˜  
   
 ##Licence  
   
