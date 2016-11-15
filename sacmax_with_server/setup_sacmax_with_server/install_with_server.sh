@@ -30,6 +30,7 @@ set -eu
     cp -f ./fstab ${FSTAB}
 }
 
+set +e
 case "$1" in
     install)
     do_install
