@@ -5,6 +5,12 @@
 ##  /home/pigeneral.conf     -> FTP_DOWNLOAD_PORT=PortNumber
 ##      Port Number(ex. 9010)
 
+import sys, os
+dir = os.path.dirname(__file__)
+sys.path.append( dir +'/modules')
+
+import read_conf
+
 import time
 import imp
 import threading
@@ -14,30 +20,45 @@ from ftplib import FTP
 from queue import Queue
 
 general_def = imp.load_source('general_def', '/home/pi/general.conf')
-dev_info = imp.load_source('dev_info', '/home/pi/dev_info.conf')
+#ftp_conf = dev_info.FTP_CONF
+#TARGET_FILE = 'dev_setting.conf'
 
-ftp_conf = dev_info.FTP_CONF
-target_file = dev_info.TARGET_FILE
+CONF_PATH = "/home/pi/dev_info.conf"
 
-class FtpDownloader:
-    def __init__(self, ftp_conf):
-        self.target_filename = target_file
-        self.target_filepath = '/home/pi/' + self.target_filename
-        self.ftp_conf = ftp_conf
-        self.ftp_dir = ftp_conf['dir']
+class FtpClient:
+    def __init__(self):
+        self.ftp_setting_list = []
+        self.ftp_conf = []
+        self.ftp_dir = []
+
+        self.target_filename = []
+        self.target_filepath = []
 
     def dl_file(self, q):
+        #conf_read
+        conf = read_conf.ReadConf()
+        conf.config_read(CONF_PATH)
+        self.ftp_setting_list = conf.conf_list["FTP"]
+        self.ftp_conf = self.ftp_setting_list["FTP_CONF"]
+        self.ftp_dir = self.ftp_conf['dir']
+
+        self.target_filename = self.ftp_setting_list['TARGET_FILE']
+        self.target_filepath = '/home/pi/' + self.target_filename
+        del conf
+        
         try:
             ftp = FTP()
             ret = ftp.connect(
-                    ftp_conf['server'],
-                    ftp_conf['port'],
-                    ftp_conf['timeout'])
+                    self.ftp_conf['server'],
+                    self.ftp_conf['port'],
+                    self.ftp_conf['timeout'])
+            print(ret)
+            
             if ret[:3] != '220':
                 q.put('ftp.connect failed (not 220)')
                 return
 
-            ret = ftp.login(ftp_conf['user'], ftp_conf['pass'])
+            ret = ftp.login(self.ftp_conf['user'], self.ftp_conf['pass'])
             if ret[:3] != '230':
                 q.put('ftp.login failed')
                 return
@@ -69,7 +90,7 @@ if __name__ == '__main__':
 
     q = Queue()
 
-    dl = FtpDownloader(ftp_conf)
+    dl = FtpClient()
 
     while True:
         cli_sock, cli_addr = srv_sock.accept()

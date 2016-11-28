@@ -7,23 +7,32 @@
 
 import imp
 import mysql.connector
-mysql_info = imp.load_source('dev_info', '/home/pi/dev_info.conf')
+CONF_PATH = "/home/pi/dev_info.conf"
 
-mysql_conf = mysql_info.MYSQL_CONF
+import read_conf
 
 class ReadMysql:
 
     def __init__(self):
         self.content_list = []
 
+        self.mysql_conf = []
+
     def dev_setting_read(self, query):
+        #conf_read
+        conf = read_conf.ReadConf()
+        conf.config_read(CONF_PATH)
+        mysql_info = conf.conf_list["MYSQL"]
+        self.mysql_conf = mysql_info["MYSQL_CONF"]
+        del conf
+
         try:
             self.connector = mysql.connector.connect(
-                user= mysql_conf['user_name'],
-                password= mysql_conf['password'],
-                host= mysql_conf['host'],
-                database= mysql_conf['database'],
-                charset= mysql_conf['char'])
+                user= self.mysql_conf['user_name'],
+                password= self.mysql_conf['password'],
+                host= self.mysql_conf['host'],
+                database= self.mysql_conf['database'],
+                charset= self.mysql_conf['char'])
             cursor = self.connector.cursor()
             cursor.execute(query)
             self.content_list = cursor.fetchall()

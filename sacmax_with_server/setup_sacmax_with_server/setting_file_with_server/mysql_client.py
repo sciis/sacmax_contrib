@@ -10,6 +10,7 @@ dir = os.path.dirname(__file__)
 sys.path.append( dir +'/modules')
 
 import read_mysql
+import read_conf
 
 import time
 import imp
@@ -21,7 +22,8 @@ from queue import Queue
 import json
 
 general_def = imp.load_source('general_def', '/home/pi/general.conf')
-dev_info = imp.load_source('dev_info', '/home/pi/dev_info.conf')
+
+CONF_PATH = "/home/pi/dev_info.conf"
 
 class MySqlClient:
     def __init__(self):
@@ -29,8 +31,16 @@ class MySqlClient:
         self.target_filepath = '/home/pi/' + self.target_filename
         self.key_list = []
         self.data_list = []
+        #conf_read
+        self.mysql_info = []
 
     def apply_mysql_key_val(self, q):
+        #conf_read
+        conf = read_conf.ReadConf()
+        conf.config_read(CONF_PATH)
+        self.mysql_info = conf.conf_list["MYSQL"]
+        del conf
+
         if os.path.exists(self.target_filepath) == False:
             print('no such file mysql_key_val config_file')
             print('create config_file')
@@ -90,7 +100,7 @@ class MySqlClient:
             select_string = select_string + row + ","
             self.key_list.append(row)
         select_string = select_string[:-1]
-        query = "select " + select_string + " from " + dev_info.MYSQL_TABLE + dev_info.QUERY_CONDITIONS
+        query = "select " + select_string + " from " + self.mysql_info["MYSQL_TABLE"] +" "  + self.mysql_info["QUERY_CONDITIONS"]
 
         print("query:")
         print(query)
