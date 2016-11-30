@@ -26,15 +26,14 @@
     成功すれば、TARGET_FILEに指定したファイルが/home/pi 直下にダウンロードされます。
   
  ・ftp_client(Webページから動作確認)  
-     dev_info.conf 設定後、コマンドラインから確認の terminal_a のコマンドを打ち込んでから、ブラウザのflask_test_page下にある"sacmax."のロゴをクリックしてください  
-     あるいは以下のurlにアクセスしてください  
+     dev_info.conf 設定後、コマンドラインから確認の terminal_a のコマンドを打ち込んでから、以下のurlにアクセスしてください  
      http://(Raspberry Pi のIPアドレス)/device/dl_file  
   
  ・mysql_client(コマンドラインから動作確認)  
      まず事前に、dev_info.conf のMYSQL_CONF、MYSQL_TABLE、QUERY_CONDITIONS を設定してください。設定はファイル内のsamapleを参考にしてください。  
      次にmysql_key_val.conf 内の"INFO_COMMENT"以下の値を設定してください。"INFO_COMMENT"以下の値は、mysqlのテーブルのカラム名に相当するものです。
      
-       カラム: 値
+     カラム: 値
      
      2ファイルの設定後、ターミナルを2つ開くなど、コマンドラインの画面を2つ用意してください(それぞれterminal_a、terminal_b とします)  
      $ cd /home/pi/  
